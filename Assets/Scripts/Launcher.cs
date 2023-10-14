@@ -15,4 +15,5 @@ public class Launcher : MonoBehaviour
             bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * speed, ForceMode.Impulse);
         }
     }
+
 }

@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour
         }      
     }
     private void CountScoreInCurrentFrame() => overallFrameScoreBoard[currentFrame].text = frames.Select(x => x.SumOfRolls()).Sum().ToString();
-    public void CountTotalScore() => totalScorePanel.text =  frames.Select(x => x.SumOfRolls()).Sum().ToString();
+    public void CountTotalScore() => totalScorePanel.text = frames.Select(x => x.SumOfRolls()).Sum().ToString();
 
   
 }

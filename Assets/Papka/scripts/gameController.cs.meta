@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 97d3bba77e526714ea5a45ee70bc94fb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pinPrefab: {instanceID: 0}
+  - slippery: {fileID: 13400000, guid: f2486113d9cfb4e4590a7cc6af4b8795, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
