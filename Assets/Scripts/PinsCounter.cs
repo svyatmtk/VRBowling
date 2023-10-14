@@ -42,7 +42,7 @@ public class PinsCounter : MonoBehaviour, IPinsCounter
                 }
             }
 
-            yield return null; // ��������� ���� ����
+            yield return null; 
         }
 
         CountFallenPins(pins);
