@@ -8,6 +8,8 @@ public class BowlingLane : MonoBehaviour, IBowlingLane
     private BallSpawner ballSpawner;
     public bool isBallDropped { get; private set; } = false;
     public IPinsCounter PinsCounter { get; private set; }
+
+    public GameObject safePlace;
     void Start()
     {
         pins = new List<BowlingPin>(GetComponentsInChildren<BowlingPin>());
@@ -66,6 +68,7 @@ public class BowlingLane : MonoBehaviour, IBowlingLane
         {
             if (pin.IsKnockedDown)
             {
+                pin.transform.position = safePlace.transform.position;
                 pin.gameObject.SetActive(false);
             }
         }
