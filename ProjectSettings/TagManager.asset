@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ball
   - Pindestroyer
+  - Box
+  - Ground
+  - Pin
   layers:
   - Default
   - TransparentFX

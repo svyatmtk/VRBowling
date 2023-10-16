@@ -29,6 +29,7 @@ public class PinsCounter : MonoBehaviour, IPinsCounter
     {
         yield return new WaitForSeconds(timeToEvaluation);
         bool pinsMoving = true;
+        int limit = 0;
 
         while (pinsMoving)
         {
@@ -38,12 +39,14 @@ public class PinsCounter : MonoBehaviour, IPinsCounter
                 if (pin.GetComponent<Rigidbody>().velocity.magnitude > 0.0001)
                 {
                     pinsMoving = true;
-                    break;
+                    limit++;
+                    break;                                  
                 }
             }
 
             yield return null;
         }
+        Debug.Log(limit);
         CountFallenPins(pins);
     }
 
