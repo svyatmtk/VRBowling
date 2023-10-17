@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
 
         // Subscribe to the event with separate listeners
         bowlingLane1 = lane1.GetComponent<IBowlingLane>();
-        bowlingLane1.PinsCounter.OnCountedPins.AddListener(UpdateScore);
         bowlingLane1.PinsCounter.OnCountedPins.AddListener(NextRoll);
 
         // Initialize frames

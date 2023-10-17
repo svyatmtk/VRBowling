@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BowlingLane : MonoBehaviour, IBowlingLane
 {
-    private List<BowlingPin> pins; // ������ ������ �� �����
+    private List<BowlingPin> pins; 
     [SerializeField] private GameObject spawnSpot;
     private BallSpawner ballSpawner;
     public bool isBallDropped { get; private set; } = false;
