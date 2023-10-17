@@ -6485,31 +6485,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 174816686711952874, guid: d99599794db22144e9a0289052a48096,
-        type: 3}
-      propertyPath: safeSpot
-      value: 
-      objectReference: {fileID: 87139295}
-    - target: {fileID: 930817595715920494, guid: d99599794db22144e9a0289052a48096,
-        type: 3}
-      propertyPath: safeSpot
-      value: 
-      objectReference: {fileID: 87139295}
-    - target: {fileID: 1723414704492692654, guid: d99599794db22144e9a0289052a48096,
-        type: 3}
-      propertyPath: safeSpot
-      value: 
-      objectReference: {fileID: 87139295}
     - target: {fileID: 1761995539965187156, guid: d99599794db22144e9a0289052a48096,
         type: 3}
       propertyPath: m_Name
       value: BowlingLane
       objectReference: {fileID: 0}
-    - target: {fileID: 2140936913769637198, guid: d99599794db22144e9a0289052a48096,
-        type: 3}
-      propertyPath: safeSpot
-      value: 
-      objectReference: {fileID: 87139295}
     - target: {fileID: 3075227514471807864, guid: d99599794db22144e9a0289052a48096,
         type: 3}
       propertyPath: m_RootOrder
@@ -6565,16 +6545,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3652851485964897253, guid: d99599794db22144e9a0289052a48096,
-        type: 3}
-      propertyPath: safeSpot
-      value: 
-      objectReference: {fileID: 87139295}
-    - target: {fileID: 4216705234159260101, guid: d99599794db22144e9a0289052a48096,
-        type: 3}
-      propertyPath: safeSpot
-      value: 
-      objectReference: {fileID: 87139295}
     - target: {fileID: 5785149068159424140, guid: d99599794db22144e9a0289052a48096,
         type: 3}
       propertyPath: ball
@@ -6590,16 +6560,6 @@ PrefabInstance:
       propertyPath: safeSpot
       value: 
       objectReference: {fileID: 87139295}
-    - target: {fileID: 8420636015497689010, guid: d99599794db22144e9a0289052a48096,
-        type: 3}
-      propertyPath: safeSpot
-      value: 
-      objectReference: {fileID: 87139295}
-    - target: {fileID: 9014044051388788048, guid: d99599794db22144e9a0289052a48096,
-        type: 3}
-      propertyPath: safeSpot
-      value: 
-      objectReference: {fileID: 87139295}
     - target: {fileID: 9085751713586274283, guid: d99599794db22144e9a0289052a48096,
         type: 3}
       propertyPath: safePlace
@@ -6610,7 +6570,8 @@ PrefabInstance:
       propertyPath: spawnSpot
       value: 
       objectReference: {fileID: 1273490310}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5297963233436807906, guid: d99599794db22144e9a0289052a48096, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d99599794db22144e9a0289052a48096, type: 3}
 --- !u!1 &5905900153585673904 stripped
 GameObject:
@@ -6618,3 +6579,16 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5297963233436807908}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5905900153585673910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5905900153585673904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1747775752e57fc4c8a842437efca99b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToEvaluation: 5

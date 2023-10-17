@@ -10,10 +10,14 @@ public class BowlingLane : MonoBehaviour, IBowlingLane
     public IPinsCounter PinsCounter { get; private set; }
 
     public GameObject safePlace;
+
+    public void Awake()
+    {
+        PinsCounter = GetComponent<IPinsCounter>();
+    }
     void Start()
     {
-        pins = new List<BowlingPin>(GetComponentsInChildren<BowlingPin>());
-        PinsCounter = GetComponent<IPinsCounter>();
+        pins = new List<BowlingPin>(GetComponentsInChildren<BowlingPin>());     
         ballSpawner = GetComponent<BallSpawner>();
     }
 
