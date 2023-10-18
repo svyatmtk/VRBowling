@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3075227514471807864}
   - component: {fileID: 9085751713586274283}
-  - component: {fileID: 5297963233436807906}
   - component: {fileID: 5297963233436807905}
   - component: {fileID: 5785149068159424140}
+  - component: {fileID: 5905900153585673910}
   m_Layer: 0
   m_Name: BowlingLane 1
   m_TagString: Untagged
@@ -59,19 +59,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnSpot: {fileID: 0}
   safePlace: {fileID: 0}
---- !u!114 &5297963233436807906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1761995539965187156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1747775752e57fc4c8a842437efca99b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToEvaluation: 5
 --- !u!65 &5297963233436807905
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -98,6 +85,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 0}
+--- !u!114 &5905900153585673910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761995539965187156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1747775752e57fc4c8a842437efca99b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToEvaluation: 5
 --- !u!1001 &1455398339773221150
 PrefabInstance:
   m_ObjectHideFlags: 0
