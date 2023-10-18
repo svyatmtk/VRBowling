@@ -1,10 +1,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.TextCore.Text;
 
 public class GameManager : MonoBehaviour
 {
+    public Collider resetterPlane;
     public GameObject lane1;
     IBowlingLane bowlingLane1;
     public List<Frame> frames = new List<Frame>();
@@ -130,5 +134,9 @@ public class GameManager : MonoBehaviour
     private void CountScoreInCurrentFrame() => overallFrameScoreBoard[currentFrame].text = frames.Select(x => x.SumOfRolls()).Sum().ToString();
     public void CountTotalScore() => totalScorePanel.text = frames.Select(x => x.SumOfRolls()).Sum().ToString();
 
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
   
 }
