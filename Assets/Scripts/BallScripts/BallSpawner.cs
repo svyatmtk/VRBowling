@@ -10,7 +10,6 @@ public class BallSpawner : MonoBehaviour
         if (ball!=null)
         {
            GameObject ballObj = Instantiate(ball, transform.transform.position, transform.transform.rotation);
-            
         }
     }
 

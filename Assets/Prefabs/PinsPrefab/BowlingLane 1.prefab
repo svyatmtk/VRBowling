@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c75dac2fd31024db9eba844f5490f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 0}
+  ball: {fileID: 916237080724558293, guid: e28886a3078467948b0f20a3b4f53fec, type: 3}
 --- !u!114 &5905900153585673910
 MonoBehaviour:
   m_ObjectHideFlags: 0
