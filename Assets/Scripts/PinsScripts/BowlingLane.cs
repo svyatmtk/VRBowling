@@ -6,6 +6,7 @@ public class BowlingLane : MonoBehaviour, IBowlingLane
     private List<BowlingPin> pins; 
     [SerializeField] private GameObject spawnSpot;
     private BallSpawner ballSpawner;
+    private List<GameObject> balls = new();
     public bool isBallDropped { get; private set; } = false;
     public IPinsCounter PinsCounter { get; private set; }
 
@@ -25,6 +26,7 @@ public class BowlingLane : MonoBehaviour, IBowlingLane
     {
         if (other.tag == "Ball")
         {
+            balls.Add(other.gameObject);
             Debug.Log("enter");
             if (isBallDropped == false && PinsCounter != null)
             {
@@ -44,6 +46,7 @@ public class BowlingLane : MonoBehaviour, IBowlingLane
     {
         ResetPins();
         ReleaseBall();
+        DeleteBalls();
         SpawnBall();
         PinsCounter.ResetCounter();
     }
@@ -51,6 +54,14 @@ public class BowlingLane : MonoBehaviour, IBowlingLane
     public void ReleaseBall()
     {
         isBallDropped = false;
+    }
+
+    private void DeleteBalls()
+    {
+        foreach (var ball in balls)
+        {
+            Destroy(ball);
+        }
     }
 
     public void ResetPins()
@@ -78,6 +89,7 @@ public class BowlingLane : MonoBehaviour, IBowlingLane
         }
         ReleaseBall();
         SpawnBall();
+        DeleteBalls();
         PinsCounter.ResetCounter();
     }
 }

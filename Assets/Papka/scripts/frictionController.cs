@@ -13,7 +13,7 @@ public class frictionController : MonoBehaviour
     private GameObject lane;
 
     private void OnTriggerEnter(Collider collider) {
-        // When the ball enters the area
+        // When the balls enters the area
         if(collider.name == "ball"){
             // Change material of the lane
             lane.GetComponent<BoxCollider>().material = lb;
