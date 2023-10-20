@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI[] secondRollScoreBoard = new TextMeshProUGUI[10];
     public TextMeshProUGUI[] overallFrameScoreBoard = new TextMeshProUGUI[10];
     public TextMeshProUGUI totalScorePanel = new TextMeshProUGUI();
+    [SerializeField] GameObject player;
 
     private int currentFrame = 0;
     private int currentRoll = 0;
@@ -135,7 +136,8 @@ public class GameManager : MonoBehaviour
     public void CountTotalScore() => totalScorePanel.text = frames.Select(x => x.SumOfRolls()).Sum().ToString();
 
     public void Restart()
-    {
+    {      
+        Destroy(player);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
   
