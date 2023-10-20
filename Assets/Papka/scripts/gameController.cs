@@ -20,7 +20,7 @@ public class gameController : MonoBehaviour
     private int score;
 
     private void OnTriggerEnter(Collider collider) {
-        //stop camera once ball reaches pin collector
+        //stop camera once balls reaches pin collector
         if(collider.name == "ball"){
             (cam.GetComponent<followBall>()).enabled = false;
         }
@@ -56,7 +56,7 @@ public class gameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Obtain camera, ball, lane, and UI objects
+        // Obtain camera, balls, lane, and UI objects
         cam = GameObject.Find("Main Camera");
         ball = GameObject.Find("ball");
         lane = GameObject.Find("lane");
@@ -110,9 +110,9 @@ public class gameController : MonoBehaviour
                         
             lane.GetComponent<BoxCollider>().material = slippery; //reset lane material back to normal
 
-            ball.GetComponent<ballController>().ResetPosition(); //reset ball to be thrown again
+            ball.GetComponent<ballController>().ResetPosition(); //reset balls to be thrown again
 
-            cam.GetComponent<followBall>().enabled = true; //re-enable camera ball-tracking
+            cam.GetComponent<followBall>().enabled = true; //re-enable camera balls-tracking
 
             fullReset = !fullReset; //only reset all pins every other throw
 

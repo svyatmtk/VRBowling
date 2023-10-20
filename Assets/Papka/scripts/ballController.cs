@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //
-// Move initial ball position/rotation left/right
+// Move initial balls position/rotation left/right
 // using A/D keys on the keyboard & shift to swap modes.
-// Space to launch ball.
+// Space to launch balls.
 //
 
 public class ballController : MonoBehaviour
@@ -60,10 +60,10 @@ public class ballController : MonoBehaviour
         // If we are in left/right movement mode
         if(mode == 0){
             rBody.useGravity = false;
-            // Transform ball left/right
+            // Transform balls left/right
             transform.position = new Vector3(transform.position.x - (lr * moveSpeed * modifier), ballStartPos.y, ballStartPos.z);
 
-            // Maintain ball within bounds of the lane (initially)
+            // Maintain balls within bounds of the lane (initially)
             if (transform.position.x > range) {
                 transform.position = new Vector3(range, ballStartPos.y, ballStartPos.z);
             } else if (transform.position.x < -range) {
@@ -95,7 +95,7 @@ public class ballController : MonoBehaviour
             }
         }
 
-        // Launch ball down the lane
+        // Launch balls down the lane
         if(Input.GetKeyUp(KeyCode.Space) && mode != 2){
             mode = 2;
             rBody.useGravity = true;
@@ -116,7 +116,7 @@ public class ballController : MonoBehaviour
     }
 
     private void checkColorSwap(){
-        // Change ball color
+        // Change balls color
         if(Input.GetKeyDown(KeyCode.Alpha1)){
             gameObject.GetComponent<MeshRenderer>().material.mainTexture = texts[0];
         }else if(Input.GetKeyDown(KeyCode.Alpha2)){

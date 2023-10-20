@@ -5,7 +5,7 @@ using UnityEngine;
 //
 // Pin gravity-enable. Otherwise they like to shift around.
 // Pins are placed slightly above the ground so that they don't contact floor (because physics is annoying)
-// Pins play collision sound when colliding with another pin or the ball
+// Pins play collision sound when colliding with another pin or the balls
 //
 
 public class pinController : MonoBehaviour
@@ -19,7 +19,7 @@ public class pinController : MonoBehaviour
             // Turn gravity on (gravity was causing our objects to slide across one another)
             rBody.useGravity = true;
 
-            // If the colliding object is the ball or another pin, play a sound
+            // If the colliding object is the balls or another pin, play a sound
             if(other.collider.name == "ball" || other.collider.name.Contains("pin")){
                 float collisionForce = (other.impulse / Time.fixedDeltaTime).magnitude/350.0f;
                 // print(collisionForce);
