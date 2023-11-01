@@ -65,7 +65,7 @@ namespace Valve.VR.Extras
                     Object.Destroy(collider);
                 }
             }
-            Material newMaterial = new Material(Shader.Find("Unlit/Color"));
+            Material newMaterial = new Material(Shader.Find("Universal Render Pipeline/Lit"));
             newMaterial.SetColor("_Color", color);
             pointer.GetComponent<MeshRenderer>().material = newMaterial;
         }
