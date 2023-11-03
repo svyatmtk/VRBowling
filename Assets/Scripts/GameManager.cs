@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] int framesNum = 10;
     private void Start()
     {
-
         // Subscribe to the event with separate listeners
         bowlingLane1 = lane1.GetComponent<IBowlingLane>();
         bowlingLane1.PinsCounter.OnCountedPins.AddListener(NextRoll);

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Valve.VR;
 using Valve.VR.Extras;
 
 public class PointerUserHandler : SteamVR_LaserPointer
@@ -9,9 +10,10 @@ public class PointerUserHandler : SteamVR_LaserPointer
     {
         base.OnPointerClick(e);
         if (e.target.CompareTag("buttonUI"))
-        {                     
-              e.target.GetComponent<Button>().image.color = Color.yellow;
-              e.target.GetComponent<Button>().onClick.Invoke();           
+        {
+            Debug.Log("restart");
+            e.target.GetComponent<Button>().image.color = Color.yellow;
+            e.target.GetComponent<Button>().onClick.Invoke();           
         }
     }
     public override void OnPointerOut(PointerEventArgs e)
@@ -19,6 +21,7 @@ public class PointerUserHandler : SteamVR_LaserPointer
         base.OnPointerOut(e);
         if (e.target.CompareTag("buttonUI"))
         {
+            Debug.Log("out");
             e.target.GetComponent<Button>().image.color = defaultColor;
         }
     }
@@ -27,6 +30,7 @@ public class PointerUserHandler : SteamVR_LaserPointer
         base.OnPointerIn(e);
         if (e.target.CompareTag("buttonUI"))
         {
+            Debug.Log("in");
             e.target.GetComponent<Button>().image.color = Color.red;
         }
     }
