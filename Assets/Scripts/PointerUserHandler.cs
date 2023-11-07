@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using Valve.VR;
@@ -6,6 +7,7 @@ using Valve.VR.Extras;
 public class PointerUserHandler : SteamVR_LaserPointer
 {
     private Color defaultColor = Color.white;
+    public GameObject player;
     public override void OnPointerClick(PointerEventArgs e)
     {
         base.OnPointerClick(e);
@@ -13,7 +15,8 @@ public class PointerUserHandler : SteamVR_LaserPointer
         {
             Debug.Log("restart");
             e.target.GetComponent<Button>().image.color = Color.yellow;
-            e.target.GetComponent<Button>().onClick.Invoke();           
+            e.target.GetComponent<Button>().onClick.Invoke();
+            e.target.LookAt(player.transform);
         }
     }
     public override void OnPointerOut(PointerEventArgs e)

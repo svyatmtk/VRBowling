@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     private int currentRoll = 0;
     private const int FirstRollIndex = 0;
     private const int SecondRollIndex = 1;
+    private int[] bonusRolls = new int[10];
 
     [SerializeField] int framesNum = 10;
     private void Start()
@@ -62,11 +63,11 @@ public class GameManager : MonoBehaviour
                 case FirstRollIndex:
                     frames[currentFrame].FirstRoll = knockedDownCount;
                     frames[currentFrame].SecondRoll = 0;
-                    UpdateUIPro();
+                    Debug.Log("First");
                     break;
                 case SecondRollIndex:
                     frames[currentFrame].SecondRoll = knockedDownCount - frames[currentFrame].FirstRoll;
-                    UpdateUIPro();
+                    Debug.Log("Second");
                     break;
                 default:
                     break;
@@ -76,37 +77,69 @@ public class GameManager : MonoBehaviour
 
             // Check for frame completion
 
-            if ((frames[currentFrame].FirstRoll + frames[currentFrame].SecondRoll >= 10 || currentRoll > 1))
+            if (frames[currentFrame].FirstRoll == 10)
             {
+                CountBonusPoints(knockedDownCount);
+                UpdateUIPro();
+                bonusRolls[currentFrame] = 2;
+                currentRoll = FirstRollIndex;
+                NextFrame();
+            }
+                               
+            else if ((frames[currentFrame].FirstRoll + frames[currentFrame].SecondRoll >= 10))
+            {
+                CountBonusPoints(knockedDownCount - frames[currentFrame].FirstRoll);
+                UpdateUIPro();
+                bonusRolls[currentFrame] = 1;
+                currentRoll = FirstRollIndex;                     
+                NextFrame();
+            }
+            else if (currentRoll > 1)
+            {
+                CountBonusPoints(knockedDownCount - frames[currentFrame].FirstRoll);
+                UpdateUIPro();
                 currentRoll = FirstRollIndex;
                 NextFrame();
             }
             else
             {
+                CountBonusPoints(knockedDownCount);
+                UpdateUIPro();
                 bowlingLane1.ClearFallenPins();
+            }                    
+        }
+    }
+
+    private void CountBonusPoints(int knockedDownCount)
+    {       
+        for (int i = 0; i < framesNum; i++)
+        {
+            if (i == currentFrame)
+                continue;
+            if (bonusRolls[i] > 0)
+            {
+                frames[i].ExtraPoints += knockedDownCount;
+                Debug.Log("here " + i);
+                Debug.Log("knockedDownCount " + knockedDownCount);
+                bonusRolls[i]--;
             }
         }
     }
 
-    public void UpdateScore(int knockedDownCount)
-    {
-        // Implement your scoring logic here
-    }
-
-
     public void UpdateUIPro()
     {
-        if (currentRoll == 0)
+        if (currentRoll == 1)
         {
             CountScoreForTheFirstRoll();
             CountScoreInCurrentFrame();
         }
 
-        if (currentRoll == 1)
+        if (currentRoll == 2)
         {
             CountScoreForTheSecondRoll();
             CountScoreInCurrentFrame();
         }
+        CountTotalScore();
     }
 
     private void CountScoreForTheFirstRoll()
@@ -131,7 +164,13 @@ public class GameManager : MonoBehaviour
             secondRollScoreBoard[currentFrame].text = frames[currentFrame].SecondRoll.ToString();
         }      
     }
-    private void CountScoreInCurrentFrame() => overallFrameScoreBoard[currentFrame].text = frames.Select(x => x.SumOfRolls()).Sum().ToString();
+    private void CountScoreInCurrentFrame()
+    {
+        for (int i = 0; i <= currentFrame; i++)
+        {
+            overallFrameScoreBoard[i].text = frames.Take(i + 1).Select(x => x.SumOfRolls()).Sum().ToString();                                   
+        }      
+    } 
     public void CountTotalScore() => totalScorePanel.text = frames.Select(x => x.SumOfRolls()).Sum().ToString();
 
     public void Restart()
