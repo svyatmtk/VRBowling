@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class Frame
 {
     public int FirstRoll;
@@ -10,7 +8,7 @@ public class Frame
 
     public int SumOfRolls()
     {
-        Overall = FirstRoll + SecondRoll + ExtraPoints;
+        Overall = FirstRoll + SecondRoll + ThirdRoll + ExtraPoints;
         return Overall;
     }
 
