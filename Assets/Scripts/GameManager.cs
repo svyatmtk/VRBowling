@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -204,6 +205,10 @@ public class GameManager : MonoBehaviour
 
     private void HandleTenthFrame(int knockedDownCount)
     {
+        foreach (var item in bonusRolls)
+        {
+            Debug.Log(item);    
+        }
         if (FirstTwoRollsAreMoreThenTen())
         {
             HandleAndMoveToBonusRoll(knockedDownCount);
@@ -230,14 +235,14 @@ public class GameManager : MonoBehaviour
     private void HandleAndMoveToBonusRoll(int knockedDownCount)
     {
         countSecondAsFirst = true;
-
+      
         if (currentRoll == 1)
         {
             CountBonusPoints(knockedDownCount);
         }
         if (currentRoll == 2)
         {
-            CountBonusPoints(knockedDownCount - frames[currentFrame].FirstRoll);
+            CountBonusPoints(knockedDownCount);
         }
         UpdateUIPro();
         bowlingLane1.ResetLane();
@@ -267,9 +272,6 @@ public class GameManager : MonoBehaviour
         currentRoll = FirstRollIndex;
         NextFrame();
     }
-
-
-
 
     private void CountBonusPoints(int knockedDownCount)
     {
